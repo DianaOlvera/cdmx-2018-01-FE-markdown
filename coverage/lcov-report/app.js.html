@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">40% </span>
+        <span class="strong">38.24% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>12/30</span>
+        <span class='fraction'>13/34</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>1/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">40% </span>
+        <span class="strong">38.24% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>12/30</span>
+        <span class='fraction'>13/34</span>
       </div>
     </div>
   </div>
@@ -108,35 +108,8 @@
 63
 64
 65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+66</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -180,45 +153,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -233,7 +177,8 @@
 let string = /\[([^\]]*)\]/g
 let findUrl = ''
 let findString = ''
-let urlArray= []
+let urlArraysuccess= []
+let urlArrayfail=[]
 const fs = require('fs');
 const fetch = require('node-fetch');
 &nbsp;
@@ -271,53 +216,24 @@ Readme(callBack = <span class="fstat-no" title="function not covered" >(d</span>
           Url: find[i],
           Status: status
          }
-<span class="cstat-no" title="statement not covered" >         if(status == 200){</span>
+<span class="cstat-no" title="statement not covered" >         if(find){</span>
           
-<span class="cstat-no" title="statement not covered" >        console.log('Url exitosa: ' + ' ' + extracttUrl.Name +' '+ extracttUrl.Url + '  status: ' + extracttUrl.Status);</span>
-         }else{
+        //console.log('Url exitosa: ' + ' ' + extracttUrl.Name +' '+ extracttUrl.Url + '  status: ' + extracttUrl.Status);
+<span class="cstat-no" title="statement not covered" >         urlArraysuccess.push(extracttUrl)</span>
+<span class="cstat-no" title="statement not covered" >         console.log(urlArraysuccess)</span>
+      }else{
           //console.log('fail' + extracttUrl);
+<span class="cstat-no" title="statement not covered" >          urlArrayfail.push(extracttUrl)</span>
+<span class="cstat-no" title="statement not covered" >          console.log(urlArrayfail)</span>
          }         
        }).catch(<span class="fstat-no" title="function not covered" >(e</span>rr)=&gt;{
 <span class="cstat-no" title="statement not covered" >         console.log(err.message);</span>
        })
      }
    }
-//urlArray.push(find);
-//console.log(urlArray)
+&nbsp;
 }
 &nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-// const urlFinder = () =&gt; {
-//   findUrl = dataIterada.match(patron)
-//   findName = dataIterada.match(urlName)
-//   // console.log(findName)
-//   if (findUrl) {
-//     for (let i = 0; i &lt; findUrl.length; i++) {
-//       let request = findUrl[i]
-//       fetch(request).then((response) =&gt; {
-//         // console.log(response)
-//         let status = response.status
-//         if (status == 200) {
-//           console.log('ok')
-//         } else {
-//           console.log('Failed')
-//           const objectUrl = {
-//             Name: findName,
-//             Url: findUrl,
-//             Status: status
-//           }
-//           console.log(objectUrl)
-//         }
-//       })
-&nbsp;
-//         .catch((error) =&gt; {
-//           console.log(error.message)
-//         })
-//     }
-//   }
-// }
 &nbsp;
 module.exports={
   Readme,
@@ -328,7 +244,7 @@ module.exports={
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Sep 07 2018 17:55:11 GMT-0500 (GMT-05:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 10 2018 18:00:46 GMT-0500 (GMT-05:00)
 </div>
 </div>
 <script src="prettify.js"></script>
