@@ -13,75 +13,78 @@ const Readme = (urlFile) => {
         return reject (err)
       }
         resolve(data)     
-        console.log(data)    
+        //console.log(data)    
     })
   })
 }
 
-const findURL = (url,data)=>{
-  return new Promise ((resolve,reject)=>{
+const finder = (data)=>{
+return new Promise ((resolve,reject)=>{
+  if(data){
+let urlArray = []
 const exp = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))/g;
-const string = /\[([^\]]*)\]/g;
-const findUrl = data[i].match(exp)
-const findStr = data[i].match(string)
-const urlArray= []
-findUrl.forEach(element => {
-const request = findUrl[i] 
-fetch(request).then((res)=> {
-  let status = res.status;
-  const extracttUrl = {
-   Name: finds[i],
-   Url: find[i],
-   Status: status
-  }
-});
+const string = /\[([^\]]*)\]/g
+const findUrl = data.match(exp)
+const findStr = data.match(string)
+for (let i=0; i <findUrl.length; i++){
+  const request = findUrl[i];
+  urlArray.push({
+    href: findStr[i],
+    text: findUrl[i],
+    Status: status
+  });
+};
+return resolve(urlArray)
+}else {
+  return reject(err)
 }
-
-  
-})
-  }
+});
+};
 
 
-  const validate =()=>{
-    let find = findUrl.match(exp);// hace la busqueda de url
-    //console.log(find)
-    let finds = findUrl.match(string);// hace busqueda de titulo
-    //console.log(finds)
+
+//   const validate =()=>{
+//     let find = findUrl.match(exp);// hace la busqueda de url
+//     //console.log(find)
+//     let finds = findUrl.match(string);// hace busqueda de titulo
+//     //console.log(finds)
     
-    if(find){
-     for(let i=0; i< find.length; i++){
-       let request = find[i];
-       fetch(request).then((res)=> {
-         let status = res.status;
-         const extracttUrl = {
-          Name: finds[i],
-          Url: find[i],
-           Status: status
-          }
-          if(find){
+//     if(find){
+//      for(let i=0; i< find.length; i++){
+//        let request = find[i];
+//        fetch(request).then((res)=> {
+//          let status = res.status;
+//          const extracttUrl = {
+//           Name: finds[i],
+//           Url: find[i],
+//            Status: status
+//           }
+//           if(find){
           
-         //console.log('Url exitosa: ' + ' ' + extracttUrl.Name +' '+ extracttUrl.Url + '  status: ' + extracttUrl.Status);
-          urlArraysuccess.push(extracttUrl)
-           console.log(urlArraysuccess)
-       }else{
-           //console.log('fail' + extracttUrl);
-           urlArrayfail.push(extracttUrl)
-           console.log(urlArrayfail)
-          }         
-        }).catch((err)=>{
-          console.log(err.message);
-        })
-      }
-    }
+//          //console.log('Url exitosa: ' + ' ' + extracttUrl.Name +' '+ extracttUrl.Url + '  status: ' + extracttUrl.Status);
+//           urlArraysuccess.push(extracttUrl)
+//            console.log(urlArraysuccess)
+//        }else{
+//            //console.log('fail' + extracttUrl);
+//            urlArrayfail.push(extracttUrl)
+//            console.log(urlArrayfail)
+//           }         
+//         }).catch((err)=>{
+//           console.log(err.message);
+//         })
+//       }
+//     }
 
- }
+//  }
 
 Readme ('../README.md')
-//.then(data)
-// .catch
+.then(data => finder(data, findUrl, findStr))
+.catch(err => console.log('errorsote'))
 
  module.exports={
    Readme,
-   validate
+   //validate
+   finder
  }
+
 
